@@ -1,0 +1,71 @@
+{
+  "Version": 1,
+  "WorkspaceRootPath": "C:\\Users\\ct67ca\\Documents\\Projects\\Labs\\APICatalogo\\",
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{5A47897D-BC77-4606-91BC-B2DC7D4ADD5A}|APICatalogo\\APICatalogo.csproj|c:\\users\\ct67ca\\documents\\projects\\labs\\apicatalogo\\apicatalogo\\controllers\\models\\produto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{5A47897D-BC77-4606-91BC-B2DC7D4ADD5A}|APICatalogo\\APICatalogo.csproj|solutionrelative:apicatalogo\\controllers\\models\\produto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{5A47897D-BC77-4606-91BC-B2DC7D4ADD5A}|APICatalogo\\APICatalogo.csproj|c:\\users\\ct67ca\\documents\\projects\\labs\\apicatalogo\\apicatalogo\\controllers\\models\\categoria.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{5A47897D-BC77-4606-91BC-B2DC7D4ADD5A}|APICatalogo\\APICatalogo.csproj|solutionrelative:apicatalogo\\controllers\\models\\categoria.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{5A47897D-BC77-4606-91BC-B2DC7D4ADD5A}|APICatalogo\\APICatalogo.csproj|c:\\users\\ct67ca\\documents\\projects\\labs\\apicatalogo\\apicatalogo\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{5A47897D-BC77-4606-91BC-B2DC7D4ADD5A}|APICatalogo\\APICatalogo.csproj|solutionrelative:apicatalogo\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    }
+  ],
+  "DocumentGroupContainers": [
+    {
+      "Orientation": 0,
+      "VerticalTabListWidth": 256,
+      "DocumentGroups": [
+        {
+          "DockedWidth": 200,
+          "SelectedChildIndex": 0,
+          "Children": [
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "Produto.cs",
+              "DocumentMoniker": "C:\\Users\\ct67ca\\Documents\\Projects\\Labs\\APICatalogo\\APICatalogo\\Controllers\\Models\\Produto.cs",
+              "RelativeDocumentMoniker": "APICatalogo\\Controllers\\Models\\Produto.cs",
+              "ToolTip": "C:\\Users\\ct67ca\\Documents\\Projects\\Labs\\APICatalogo\\APICatalogo\\Controllers\\Models\\Produto.cs",
+              "RelativeToolTip": "APICatalogo\\Controllers\\Models\\Produto.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAA0AAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-07-11T16:55:46.929Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "Categoria.cs",
+              "DocumentMoniker": "C:\\Users\\ct67ca\\Documents\\Projects\\Labs\\APICatalogo\\APICatalogo\\Controllers\\Models\\Categoria.cs",
+              "RelativeDocumentMoniker": "APICatalogo\\Controllers\\Models\\Categoria.cs",
+              "ToolTip": "C:\\Users\\ct67ca\\Documents\\Projects\\Labs\\APICatalogo\\APICatalogo\\Controllers\\Models\\Categoria.cs",
+              "RelativeToolTip": "APICatalogo\\Controllers\\Models\\Categoria.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAAAAAApAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-07-11T16:53:55.382Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "Program.cs",
+              "DocumentMoniker": "C:\\Users\\ct67ca\\Documents\\Projects\\Labs\\APICatalogo\\APICatalogo\\Program.cs",
+              "RelativeDocumentMoniker": "APICatalogo\\Program.cs",
+              "ToolTip": "C:\\Users\\ct67ca\\Documents\\Projects\\Labs\\APICatalogo\\APICatalogo\\Program.cs",
+              "RelativeToolTip": "APICatalogo\\Program.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAABgAAAAKAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-07-11T16:46:42.8Z",
+              "EditorCaption": ""
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
