@@ -1,6 +1,7 @@
 ﻿using APICatalogo.Context;
 using APICatalogo.Models;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
 
 namespace APICatalogo.Controllers
 {
@@ -48,6 +49,25 @@ namespace APICatalogo.Controllers
             _context.SaveChanges();
             
             return new CreatedAtRouteResult("GetById", new { id = produto.ProdutoId }, produto);
+        }
+
+        [HttpPut("{id:int}")]
+        public ActionResult<Produto> Update(int id, Produto produto)
+        {
+            if (id != produto.ProdutoId)
+            {
+                return BadRequest("Códigos de produtos divergentes!");
+            }
+
+            if ((_context.Produtos.FirstOrDefault(p => p.ProdutoId == id)) is null)
+            {
+                return NotFound("Produto não encontrado!");
+            }
+
+            _context.Entry(produto).State = EntityState.Modified;
+            _context.SaveChanges();
+
+            return Ok(produto);
         }
     }
 }
