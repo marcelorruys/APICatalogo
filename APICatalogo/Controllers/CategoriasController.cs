@@ -17,15 +17,21 @@ public class CategoriasController : ControllerBase
     }
 
     [HttpGet]
-    public ActionResult<IEnumerable<Categoria>> Get()
+    public ActionResult<IEnumerable<Categoria>> GetAll()
     {
-        return _context.Categorias.ToList();
+        return _context.Categorias.AsNoTracking().ToList();
+    }
+    
+    [HttpGet("produtos")]
+    public ActionResult<IEnumerable<Categoria>> GetAllWithProducts()
+    {
+        return _context.Categorias.Include(p => p.Produtos).AsNoTracking().ToList();
     }
 
-    [HttpGet("{id:int}", Name = "ObterCategoria")]
-    public ActionResult<Categoria> Get(int id)
+    [HttpGet("{id:int}", Name = "GetById")]
+    public ActionResult<Categoria> GetById(int id)
     {
-        var categoria = _context.Categorias.FirstOrDefault(p => p.CategoriaId == id);
+        var categoria = _context.Categorias.AsNoTracking().FirstOrDefault(p => p.CategoriaId == id);
 
         if (categoria == null)
         {
@@ -35,7 +41,7 @@ public class CategoriasController : ControllerBase
     }
 
     [HttpPost]
-    public ActionResult Post(Categoria categoria)
+    public ActionResult Create(Categoria categoria)
     {
         if (categoria is null)
             return BadRequest();
@@ -43,12 +49,12 @@ public class CategoriasController : ControllerBase
         _context.Categorias.Add(categoria);
         _context.SaveChanges();
 
-        return new CreatedAtRouteResult("ObterCategoria",
+        return new CreatedAtRouteResult("GetById",
             new { id = categoria.CategoriaId }, categoria);
     }
 
     [HttpPut("{id:int}")]
-    public ActionResult Put(int id, Categoria categoria)
+    public ActionResult Update(int id, Categoria categoria)
     {
         if (id != categoria.CategoriaId)
         {
