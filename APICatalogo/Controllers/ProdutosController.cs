@@ -1,6 +1,5 @@
 ﻿using APICatalogo.Context;
 using APICatalogo.Models;
-using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 
 namespace APICatalogo.Controllers
@@ -26,7 +25,7 @@ namespace APICatalogo.Controllers
             return produtos;
         }
 
-        [HttpGet("{id:int}")]
+        [HttpGet("{id:int}", Name = "GetById")]
         public ActionResult<Produto> GetById(int id)
         {
             var produto = _context.Produtos.FirstOrDefault(p => p.ProdutoId == id);
@@ -35,6 +34,20 @@ namespace APICatalogo.Controllers
                 return NotFound("O Produto não encontrado!");
             }
             return produto;
+        }
+
+        [HttpPost]
+        public IActionResult Create(Produto produto)
+        {
+            if (produto is null) 
+            {
+                return BadRequest("Produto Inválido!");
+            }
+
+            _context.Produtos.Add(produto);
+            _context.SaveChanges();
+            
+            return new CreatedAtRouteResult("GetById", new { id = produto.ProdutoId }, produto);
         }
     }
 }
