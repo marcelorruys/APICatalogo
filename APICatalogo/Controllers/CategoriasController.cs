@@ -5,7 +5,7 @@ using Microsoft.EntityFrameworkCore;
 
 namespace APICatalogo.Controllers;
 
-[Route("[controller]")]
+[Route("api/[controller]")]
 [ApiController]
 public class CategoriasController : ControllerBase
 {
@@ -44,7 +44,7 @@ public class CategoriasController : ControllerBase
         }
     }
 
-    [HttpGet("{id:int}", Name = "GetById")]
+    [HttpGet("{id:int}", Name = "GetByIdCategoria")]
     public ActionResult<Categoria> GetById(int id)
     {
         try
@@ -75,7 +75,7 @@ public class CategoriasController : ControllerBase
             _context.Categorias.Add(categoria);
             _context.SaveChanges();
 
-            return new CreatedAtRouteResult("GetById",
+            return new CreatedAtRouteResult("GetByIdCategoria",
                 new { id = categoria.CategoriaId }, categoria);
 
         }
