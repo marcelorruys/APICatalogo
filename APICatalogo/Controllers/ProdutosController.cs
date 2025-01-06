@@ -26,7 +26,7 @@ namespace APICatalogo.Controllers
             return produtos;
         }
 
-        [HttpGet("{id:int}", Name = "GetByIdProduto")]
+        [HttpGet("{id:int:min(1)}", Name = "GetByIdProduto")]
         public ActionResult<Produto> GetById(int id)
         {
             var produto = _context.Produtos.AsNoTracking().FirstOrDefault(p => p.ProdutoId == id);
@@ -51,7 +51,7 @@ namespace APICatalogo.Controllers
             return new CreatedAtRouteResult("", new { id = produto.ProdutoId }, produto);
         }
 
-        [HttpPut("{id:int}")]
+        [HttpPut("{id:int:min(1)}")]
         public ActionResult<Produto> Update(int id, Produto produto)
         {
             if (id != produto.ProdutoId)
@@ -70,7 +70,7 @@ namespace APICatalogo.Controllers
             return Ok(produto);
         }
 
-        [HttpDelete("id:int")]
+        [HttpDelete("{id:int:min(1)}")]
         public IActionResult Delete(int id)
         {
             var produto = _context.Produtos.FirstOrDefault(p => p.ProdutoId == id);
