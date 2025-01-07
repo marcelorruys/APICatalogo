@@ -8,16 +8,34 @@ namespace APICatalogo.Controllers;
 [ApiController]
 public class ProdutosController : ControllerBase
 {
-    private readonly IProdutoRepository _repository;
-    public ProdutosController(IProdutoRepository repository)
+    //Aqui eu poderia usar apenas o repositório específico
+    //Pois como ele implementa IRepository ele contém todos
+    //os métodos do repositório genérico e também o método específico
+    //sendo suficiente para realizar todas as operações 
+    private readonly IProdutoRepository _produtoRepository;
+    private readonly IRepository<Produto> _repository;
+    public ProdutosController(IRepository<Produto> repository,
+        IProdutoRepository produtoRepository)
     {
+        _produtoRepository = produtoRepository;
         _repository = repository;
+    }
+
+    [HttpGet("produtos/{id}")]
+    public ActionResult <IEnumerable<Produto>> GetProdutosCategoria(int id)
+    {
+        var produtos = _produtoRepository.GetProdutosPorCategoria(id);
+        
+        if (produtos is null)
+            return NotFound();
+
+        return Ok(produtos);    
     }
 
     [HttpGet]
     public ActionResult<IEnumerable<Produto>> Get()
     {
-        var produtos = _repository.GetProdutos().ToList();
+        var produtos = _repository.GetAll();
         if (produtos is null)
         {
             return NotFound();
@@ -28,7 +46,7 @@ public class ProdutosController : ControllerBase
     [HttpGet("{id}", Name = "ObterProduto")]
     public ActionResult<Produto> Get(int id)
     {
-        var produto = _repository.GetProduto(id);
+        var produto = _repository.Get(c=> c.ProdutoId == id);   
         if (produto is null)
         {
             return NotFound("Produto não encontrado...");
@@ -56,29 +74,21 @@ public class ProdutosController : ControllerBase
             return BadRequest();//400
         }
 
-        bool atualizado = _repository.Update(produto);
+        var produtoAtualizado = _repository.Update(produto);
 
-        if (atualizado)
-        {
-            return Ok(produto);
-        }
-        else
-        {
-            return StatusCode(500, $"Falha ao atualizar o produto de id = {id}");
-        }
+       return Ok(produtoAtualizado);
     }
 
     [HttpDelete("{id:int}")]
     public ActionResult Delete(int id)
     {
-        bool deletado = _repository.Delete(id);
-        if (deletado)
+        var produto = _repository.Get(p => p.ProdutoId == id);
+        if (produto is null)
         {
-            return Ok($"Produto de id={id} foi excluído");
+            return NotFound("Produto não encontrado...");
         }
-        else
-        {
-            return StatusCode(500, $"Falha ao excluir o produto de id={id}");
-        }
+
+        var produtoDeletado = _repository.Delete(produto);
+        return Ok(produtoDeletado);
     }
 }
