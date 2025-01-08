@@ -1,5 +1,6 @@
 ﻿using APICatalogo.Models;
 using APICatalogo.Repositories;
+using APICatalogo.Repositories.Interfaces;
 using Microsoft.AspNetCore.Mvc;
 
 namespace APICatalogo.Controllers;
@@ -8,14 +9,13 @@ namespace APICatalogo.Controllers;
 [ApiController]
 public class CategoriasController : ControllerBase
 {
-    private readonly IRepository<Categoria> _repository;
+    private readonly IUnitOfWork _unitOfWork;
     private readonly ILogger<CategoriasController> _logger;
 
-    public CategoriasController(IRepository<Categoria> repository,
-        ILogger<CategoriasController> logger)
+    public CategoriasController(ILogger<CategoriasController> logger, IUnitOfWork unitOfWork)
     {
-        _repository = repository;
         _logger = logger;
+        _unitOfWork = unitOfWork;
     }
 
     [HttpGet]
