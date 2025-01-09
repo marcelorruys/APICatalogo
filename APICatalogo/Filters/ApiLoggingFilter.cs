@@ -10,7 +10,6 @@ public class ApiLoggingFilter : IActionFilter
     {
         _logger = logger;
     }
-
     public void OnActionExecuting(ActionExecutingContext context)
     {
         //executa antes da Action
@@ -18,6 +17,8 @@ public class ApiLoggingFilter : IActionFilter
         _logger.LogInformation("###################################################");
         _logger.LogInformation($"{DateTime.Now.ToLongTimeString()}");
         _logger.LogInformation($"ModelState : {context.ModelState.IsValid}");
+        _logger.LogInformation("###################################################");
+
     }
     public void OnActionExecuted(ActionExecutedContext context)
     {
@@ -29,3 +30,6 @@ public class ApiLoggingFilter : IActionFilter
         _logger.LogInformation("###################################################");
     }
 }
+
+   
+

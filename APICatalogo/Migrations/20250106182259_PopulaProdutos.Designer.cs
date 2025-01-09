@@ -16,6 +16,9 @@ namespace APICatalogo.Migrations
     partial class PopulaProdutos
     {
         /// <inheritdoc />
+        
+        
+        
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
